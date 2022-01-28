@@ -1,14 +1,19 @@
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
+import { RootState } from '../../store';
 import { loadTestData } from '../../store/actions/testAction';
 
 export default function TabOneScreen() {
-
-
+  const navigation = useNavigation()
+  const route = useRoute()
   const dispatch = useDispatch();
+  const data = useSelector((state: RootState) => state.test.data);
+  console.log(data, "get data from redux");
+
   const loadData = () => {
     dispatch(loadTestData(() => {
       console.log("got data");
