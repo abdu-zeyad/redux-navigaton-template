@@ -1,4 +1,4 @@
-import { ReduxState } from "../../types/redux";
+import { ReduxState } from "../../types/reduxTypes";
 import { LOAD_TEST, ON_ERROR, TestAction, UPDATE_LOADING } from '../models/testModel';
 
 // any is a type the is coming from the api.client

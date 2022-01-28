@@ -1,4 +1,4 @@
-import { ReduxAction } from "../../types/redux";
+import { ReduxAction } from "../../types/reduxTypes";
 
 export const LOAD_TEST = "test/LOAD_TEST";
 export const UPDATE_LOADING = "Test/UPDATE_LOADING";
