@@ -1,10 +1,22 @@
+import { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
+import { useDispatch } from 'react-redux';
+import EditScreenInfo from '../../components/EditScreenInfo';
+import { Text, View } from '../../components/Themed';
+import { loadTestData } from '../../store/actions/testAction';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
-import { RootTabScreenProps } from '../types/navigationTypes';
+export default function TabOneScreen() {
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+
+  const dispatch = useDispatch();
+  const loadData = () => {
+    dispatch(loadTestData(() => {
+      console.log("got data");
+    }));
+  };
+  useEffect(() => {
+    loadData()
+  })
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>

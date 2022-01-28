@@ -1,13 +1,17 @@
 import { ReduxState } from "../../types/reduxTypes";
 import { LOAD_TEST, ON_ERROR, TestAction, UPDATE_LOADING } from '../models/testModel';
 
-// any is a type the is coming from the api.client
+
+export type data = {
+    name: string,
+    age: number
+}
 
 export type TestState = {
-} & ReduxState<any>;
+} & ReduxState<data>;
 
 const initialState: TestState = {
-    data: {} as any,
+    data: {} as data,
     error: undefined,
     isLoading: false,
 }
