@@ -16,6 +16,7 @@ const SignUpScreen = () => {
                 iosClientId: "590049508497-j0gqvuh9903t1tgf2l90sc2jbkho0frl.apps.googleusercontent.com",
                 scopes: ['profile', 'email'],
             });
+            console.log(result);
 
             if (result.type === 'success') {
                 setToken(result.accessToken)
