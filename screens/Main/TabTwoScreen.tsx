@@ -58,7 +58,7 @@ export default function TabTwoScreen() {
   // Create a reference with an initial file path and name
   const storage = getStorage();
   const downloadFile = async () => {
-    getDownloadURL(storageRef(storage, 'campnow.jpeg'))
+    getDownloadURL(storageRef(storage, '071248d5-d301-45ea-886a-81181cf228f5.jpeg'))
       .then((url) => {
         console.log(url, "download url link");
         setImage(url)
@@ -184,7 +184,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
