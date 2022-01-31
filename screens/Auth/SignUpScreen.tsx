@@ -6,6 +6,8 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithCredential } from 'firebase/auth';
 import { Button, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const firebaseConfig = {
     apiKey: "AIzaSyD4l3PgAkbTTFGCc1I7Ea5KN-FqdL8OMtY",
     authDomain: "uni-project-6f3be.firebaseapp.com",
@@ -43,6 +45,19 @@ export default function App() {
         }
     }, [response]);
 
+    const getAllKeys = async () => {
+        let keys: string[] = []
+        try {
+            keys = await AsyncStorage.getAllKeys()
+        } catch (e) {
+            // read key error
+        }
+
+        console.log(keys)
+        // example console.log result:
+        // ['@MyApp_user', '@MyApp_key']
+    }
+
     return (
         <View>
             <Button
@@ -57,6 +72,12 @@ export default function App() {
                 title="go to"
                 color={'red'}
                 onPress={goToScreen}
+            />
+            <Button
+                disabled={!request}
+                title="get all"
+                color={'green'}
+                onPress={getAllKeys}
             />
         </View>
 
