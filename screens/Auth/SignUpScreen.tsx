@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 const firebaseConfig = {
     apiKey: "AIzaSyD4l3PgAkbTTFGCc1I7Ea5KN-FqdL8OMtY",
     authDomain: "uni-project-6f3be.firebaseapp.com",
+    databaseURL: "https://uni-project-6f3be-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "uni-project-6f3be",
     storageBucket: "uni-project-6f3be.appspot.com",
     messagingSenderId: "1035818317432",
