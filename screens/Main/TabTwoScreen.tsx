@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView, TouchableOpacity, TextInput, Button, Image } from 'react-native';
 import { getDatabase, ref, onValue, set } from 'firebase/database';
 import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
 import EditScreenInfo from '../../components/EditScreenInfo';
@@ -121,11 +121,64 @@ export default function TabTwoScreen() {
 
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
+    <ScrollView
+
+      contentContainerStyle={styles.container}
+    >
+      <Text style={styles.title}>Tab One</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
-    </View>
+      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
+      <View style={{ marginVertical: 20 }}></View>
+
+      <TouchableOpacity
+        onPress={() => addToRTDB(data)}
+      >
+        <Text>add to real time database </Text>
+      </TouchableOpacity>
+      <View style={{ marginVertical: 20 }}></View>
+
+      <TouchableOpacity
+        onPress={() => addDataToFireStore()}
+      >
+        <Text>add to fire store</Text>
+      </TouchableOpacity>
+
+      <View style={{ marginVertical: 20 }}></View>
+
+      <TextInput
+        onChangeText={setData}
+        value={data}
+        placeholder="useless placeholder"
+        keyboardType="default"
+      />
+      <View style={{ marginVertical: 20 }}></View>
+      <TouchableOpacity
+        onPress={downloadFile}
+      >
+        <Text>download file  </Text>
+      </TouchableOpacity>
+      <View style={{ marginVertical: 20 }}></View>
+
+      {!!image && <Image
+        source={{
+          uri: image,
+        }}
+
+        style={{ width: 100, height: 100 }}
+      />}
+      <View style={{ marginVertical: 20 }}></View>
+
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button title="Pick an image from camera roll" onPress={pickImage} />
+        {uploadImage && <Image source={{ uri: uploadImage }} style={{ width: 200, height: 200 }} />}
+      </View>
+      <View style={{ marginVertical: 20 }}></View>
+      <TouchableOpacity
+        onPress={uploadImageAsync}
+      >
+        <Text>upload file  </Text>
+      </TouchableOpacity>
+    </ScrollView >
   );
 }
 
